@@ -1,0 +1,39 @@
+{
+  "schemaVersion": 1,
+  "id": "dudewhatsmygepeuwu",
+  "version": "${version}",
+
+  "name": "Dude, What's My GePeUwu",
+  "description": "a mod that says in the log and menu screen what GPU you're using. useful if you have 2 GPUs [1 iGPU + 1 dGPU or 2 dGPUs]",
+  "authors": [
+    "devOS: Sanity Edition",
+    "Team Nautical"
+  ],
+  "contributors": [
+    "Stereo528",
+    "asoji"
+  ],
+  "contact": {
+    "homepage": "https://devos.one/",
+    "sources": "https://github.com/devOS-Sanity-Edition/DudeWhatsMyGePeUwu"
+  },
+
+  "license": "MIT",
+  "icon": "assets/dudewhatsmygepeuwu/icon.png",
+
+  "environment": "*",
+  "entrypoints": {
+    "client": [
+      "one.devos.nautical.dudewhatsmygepeuwu.client.DudeWhatsMyGePeUwuClient"
+    ]
+  },
+  "mixins": [
+    "dudewhatsmygepeuwu.mixins.json"
+  ],
+
+  "depends": {
+    "fabricloader": ">=0.13.3",
+    "minecraft": ">=1.18.2",
+    "java": ">=17"
+  }
+}
