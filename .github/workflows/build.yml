@@ -2,9 +2,9 @@ name: Gradle build
 
 on:
   push:
-    branches: [ 1.18.2-universal, 1.18.2-server-only ]
+    branches: [ main ]
   pull_request:
-    branches: [ 1.18.2-universal, 1.18.2-server-only ]
+    branches: [ main ]
 
 jobs:
   build:
