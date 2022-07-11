@@ -6,7 +6,8 @@ the game constantly into singleplayer/multiplayer and joining to see from F3 scr
 Especially useful if you have a dual GPU laptop or tower and trying to figure out what GPU is your Minecraft using. 
 [looking at you iGPU + dGPU laptop users]
 
-![img.png](images/img.png)
+![img.png](images/intel.png)
+![img.png](images/nvidia.png)
 
 ### Modrinth release soon™, once we figure out some more internal stuff.
 

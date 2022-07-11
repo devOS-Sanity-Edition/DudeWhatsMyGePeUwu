@@ -50,6 +50,7 @@ public class TitleScreenMixin extends Screen {
 
 	@Inject(method = "init", at = @At("TAIL"))
 	protected void funnyGPUPrint(CallbackInfo info) {
+		//TODO figure out how to not print this like 3 times on game launch, and every time there after when you go to the main menu
 		DudeWhatsMyGePeUwuClient.LOGGER.info("[" + MOD_ID + "] Current GePeUwu: " + renderer.get());
 	}
 }

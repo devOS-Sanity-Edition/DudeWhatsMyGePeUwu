@@ -19,7 +19,7 @@ dependencies {
 	mappings loom.officialMojangMappings()
 	modImplementation "net.fabricmc:fabric-loader:${project.loader_version}"
 
-	modImplementation "com.terraformersmc:modmenu:${project.modmenu_version}"
+	//modImplementation "com.terraformersmc:modmenu:${project.modmenu_version}"
 }
 
 processResources {
