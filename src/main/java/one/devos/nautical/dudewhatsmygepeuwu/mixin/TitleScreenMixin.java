@@ -2,7 +2,6 @@ package one.devos.nautical.dudewhatsmygepeuwu.mixin;
 
 import com.mojang.blaze3d.platform.GlUtil;
 import com.mojang.blaze3d.vertex.PoseStack;
-import net.minecraft.SharedConstants;
 import net.minecraft.client.gui.Font;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.client.gui.screens.TitleScreen;
@@ -18,6 +17,8 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 import java.util.function.Supplier;
+
+import static one.devos.nautical.dudewhatsmygepeuwu.client.DudeWhatsMyGePeUwuClient.MOD_ID;
 
 // stereo im personally going to end you for using yarn mappings,
 // i had to slightly painfully translate this all to mojmap :crysis:
@@ -38,6 +39,8 @@ public class TitleScreenMixin extends Screen {
 	@Inject(method = "render", at = @At("TAIL"))
 	protected void funnyGPU(PoseStack poseStack, int xMouse, int yMouse, float delta, CallbackInfo ci) {
 
+
+		//can anyone please tell me if there's a way to shadow local variables
 		float f = this.fading ? (float)(Util.getMillis() - this.fadeInStart) / 1000.0F : 1.0F;
 		float g = this.fading ? Mth.clamp(f - 1.0F, 0.0F, 1.0F) : 1.0F;
 		int l = Mth.ceil(g * 255.0F) << 24;
@@ -47,8 +50,6 @@ public class TitleScreenMixin extends Screen {
 
 	@Inject(method = "init", at = @At("TAIL"))
 	protected void funnyGPUPrint(CallbackInfo info) {
-		DudeWhatsMyGePeUwuClient.LOGGER.info("Current GePeUwu: " + renderer.get());
-		assert minecraft != null;
-		minecraft.getWindow().setTitle("Minecraft* - " + SharedConstants.getCurrentVersion().getName() + " " + renderer.get().split("/.*$")[0]);
+		DudeWhatsMyGePeUwuClient.LOGGER.info("[" + MOD_ID + "] Current GePeUwu: " + renderer.get());
 	}
 }
