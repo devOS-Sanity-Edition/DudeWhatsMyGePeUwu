@@ -27,7 +27,7 @@ public class DudeWhatsMyGePeUwu {
         @SubscribeEvent
         public static void onClientSetup(FMLClientSetupEvent event) {
             // Some client setup code
-            LOGGER.info("[" + MODID + "] GPU ready to be obliterated");
+            LOGGER.info("GPU ready to be obliterated");
         }
     }
 }

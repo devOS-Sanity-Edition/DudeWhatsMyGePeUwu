@@ -1,14 +1,19 @@
 modLoader = "javafml" #mandatory
-loaderVersion = "[41,)" #mandatory
+loaderVersion = "[40,)" #mandatory
 license = "MIT"
 issueTrackerURL="https://github.com/devOS-Sanity-Edition/DudeWhatsMyGePeUwu/issues" #optional
+logoFile="logo.png"
 
 [[mods]] #mandatory
 modId = "dudewhatsmygepeuwu" #mandatory
-version = "${file.jarVersion}" #mandatory
+version = "1.0.0" #mandatory
 displayName = "Dude, What's My GePeUWU?" #mandatory
 displayURL="https://github.com/devOS-Sanity-Edition/DudeWhatsMyGePeUwu" #optional
-#logoFile="icon.png" #optional
-credits="Stereo528. asoji"
+ #optional
+credits="Stereo528, asoji"
 authors = "devOS-Nautical"
-description = '''a mod that says in the log and menu screen what GPU you're using. useful if you have 2 GPUs [1 iGPU + 1 dGPU or 2 dGPUs]'''
+description = '''
+A mod that tells what GPU you're using for Minecraft from the title screen and in your logs, thus letting you avoid the annoyance that is loading into a world and pressing f3 to find out what your GPU is.
+
+Can be very useful if you have a dual GPU laptop or tower and trying to figure out what GPU is your Minecraft using!
+'''

@@ -52,7 +52,7 @@ public class TitleScreenMixin extends Screen {
     @Inject(method = "init", at = @At("TAIL"))
     protected void funnyGPUPrint(CallbackInfo info) {
         if(!alreadyPrinted) {
-            DudeWhatsMyGePeUwu.LOGGER.info("[" + MODID + "] Current GePeUwu: " + renderer.get());
+            DudeWhatsMyGePeUwu.LOGGER.info("Current GePeUwu: " + renderer.get());
             alreadyPrinted = true;
         }
     }
