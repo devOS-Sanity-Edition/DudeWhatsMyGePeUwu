@@ -1,0 +1,14 @@
+modLoader = "javafml" #mandatory
+loaderVersion = "[41,)" #mandatory
+license = "MIT"
+issueTrackerURL="https://github.com/devOS-Sanity-Edition/DudeWhatsMyGePeUwu/issues" #optional
+
+[[mods]] #mandatory
+modId = "dudewhatsmygepeuwu" #mandatory
+version = "${file.jarVersion}" #mandatory
+displayName = "Dude, What's My GePeUWU?" #mandatory
+displayURL="https://github.com/devOS-Sanity-Edition/DudeWhatsMyGePeUwu" #optional
+#logoFile="icon.png" #optional
+credits="Stereo528. asoji"
+authors = "devOS-Nautical"
+description = '''a mod that says in the log and menu screen what GPU you're using. useful if you have 2 GPUs [1 iGPU + 1 dGPU or 2 dGPUs]'''
