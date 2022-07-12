@@ -35,12 +35,13 @@ public class TitleScreenMixin extends Screen {
 	@Shadow @Final private boolean fading;
 	@Shadow private long fadeInStart;
 	Supplier<String> renderer = GlUtil::getRenderer;
+	private boolean alreadyPrinted = false;
 
 	@Inject(method = "render", at = @At("TAIL"))
 	protected void funnyGPU(PoseStack poseStack, int xMouse, int yMouse, float delta, CallbackInfo ci) {
 
-
 		//can anyone please tell me if there's a way to shadow local variables
+		//im suffering in like 3 different mods where i have to do this lmao
 		float f = this.fading ? (float)(Util.getMillis() - this.fadeInStart) / 1000.0F : 1.0F;
 		float g = this.fading ? Mth.clamp(f - 1.0F, 0.0F, 1.0F) : 1.0F;
 		int l = Mth.ceil(g * 255.0F) << 24;
@@ -50,7 +51,9 @@ public class TitleScreenMixin extends Screen {
 
 	@Inject(method = "init", at = @At("TAIL"))
 	protected void funnyGPUPrint(CallbackInfo info) {
-		//TODO figure out how to not print this like 3 times on game launch, and every time there after when you go to the main menu
-		DudeWhatsMyGePeUwuClient.LOGGER.info("[" + MOD_ID + "] Current GePeUwu: " + renderer.get());
+		if(!alreadyPrinted) {
+			DudeWhatsMyGePeUwuClient.LOGGER.info("[" + MOD_ID + "] Current GePeUwu: " + renderer.get());
+			alreadyPrinted = true;
+		}
 	}
 }
