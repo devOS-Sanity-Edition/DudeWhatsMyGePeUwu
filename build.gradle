@@ -11,6 +11,7 @@ buildscript {
 
 plugins {
     id 'net.minecraftforge.gradle' version '5.1.+'
+    id 'maven-publish'
 }
 
 apply plugin: 'org.spongepowered.mixin'
@@ -60,9 +61,6 @@ minecraft {
             // Please read: https://stackoverflow.com/questions/2031163/when-to-use-the-different-log-levels
             property 'forge.logging.console.level', 'debug'
 
-            // Comma-separated list of namespaces to load gametests from. Empty = all namespaces.
-            property 'forge.enabledGameTestNamespaces', ''
-
             mods {
                 dudewhatsmygepeuwu {
                     source sourceSets.main
@@ -77,26 +75,6 @@ minecraft {
 
             property 'forge.logging.console.level', 'debug'
 
-            property 'forge.enabledGameTestNamespaces', 'dudewhatsmygepeuwu'
-
-            mods {
-                dudewhatsmygepeuwu {
-                    source sourceSets.main
-                }
-            }
-        }
-
-        // This run config launches GameTestServer and runs all registered gametests, then exits.
-        // By default, the server will crash when no gametests are provided.
-        // The gametest system is also enabled by default for other run configs under the /test command.
-        gameTestServer {
-            workingDirectory project.file('run')
-
-            property 'forge.logging.markers', 'REGISTRIES'
-
-            property 'forge.logging.console.level', 'debug'
-
-            property 'forge.enabledGameTestNamespaces', 'dudewhatsmygepeuwu'
 
             mods {
                 dudewhatsmygepeuwu {
@@ -183,4 +161,36 @@ jar.finalizedBy('reobfJar')
 
 tasks.withType(JavaCompile).configureEach {
     options.encoding = 'UTF-8' // Use the UTF-8 charset for Java compilation
+}
+
+task buildOrPublish {
+    group = "build"
+    String mavenUser = System.getenv().MAVEN_USER
+    if (mavenUser != null && !mavenUser.isEmpty()) {
+        dependsOn(tasks.getByName("publish"))
+        println("prepared for publish")
+    } else {
+        dependsOn(tasks.getByName("build"))
+        println("prepared for build")
+    }
+}
+
+// configure the maven publication
+publishing {
+    publications {
+        mavenJava(MavenPublication) {
+            from components.java
+        }
+    }
+
+    repositories {
+        maven {
+            url = "https://mvn.devos.one/${System.getenv().PUBLISH_SUFFIX}/"
+            credentials {
+                username = System.getenv().MAVEN_USER
+                password = System.getenv().MAVEN_PASS
+            }
+            authentication { basic(BasicAuthentication) }
+        }
+    }
 }

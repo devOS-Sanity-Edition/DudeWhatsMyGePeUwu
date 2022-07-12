@@ -2,9 +2,9 @@ name: Gradle build
 
 on:
   push:
-    branches: [ main ]
+    branches: [ main, 1.18.x, Forge-1.19 ]
   pull_request:
-    branches: [ main ]
+    branches: [ main, 1.18.x, Forge-1.19 ]
 
 jobs:
   build:
