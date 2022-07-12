@@ -12,6 +12,6 @@ public class DudeWhatsMyGePeUwuClient implements ClientModInitializer {
     @Override
     public void onInitializeClient() {
 
-        LOGGER.info("GPU ready to be obliterated");
+        LOGGER.info("[" + MOD_ID + "] GPU ready to be obliterated");
     }
 }
