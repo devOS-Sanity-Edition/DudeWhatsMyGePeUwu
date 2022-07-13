@@ -9,7 +9,10 @@ Especially useful if you have a dual GPU laptop or tower and trying to figure ou
 ![img.png](images/intel.png)
 ![img.png](images/nvidia.png)
 
-### Modrinth release soon™, once we figure out some more internal stuff.
+## Downloads
+[Modrinth](https://modrinth.com/mod/dudewhatsmygpu)
+
+[CurseForge](https://www.curseforge.com/minecraft/mc-mods/dude-whats-my-gepeuwu/)
 
 ## License
 
