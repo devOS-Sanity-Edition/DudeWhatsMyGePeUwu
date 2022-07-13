@@ -179,6 +179,7 @@ task buildOrPublish {
 publishing {
     publications {
         mavenJava(MavenPublication) {
+            version "${project.mod_version}-forge"
             from components.java
         }
     }
