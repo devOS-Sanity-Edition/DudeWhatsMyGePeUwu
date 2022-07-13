@@ -58,6 +58,7 @@ task buildOrPublish {
 publishing {
 	publications {
 		mavenJava(MavenPublication) {
+			version "${project.mod_version}-fabric"
 			from components.java
 		}
 	}
